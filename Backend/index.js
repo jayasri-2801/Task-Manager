@@ -6,11 +6,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://Jayasri:Jayasri2816@cluster0.3ku3lfd.mongodb.net/todolistDB?appName=Cluster0")
+mongoose.connect("mongodb+srv://Jayasri:Jayasri2816@cluster0.3ku3lfd.mongodb.net/todolist?appName=Cluster0")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-/* ===== MODELS ===== */
+
+ /* ===== MODELS ===== */
 
 const todoSchema = new mongoose.Schema({
   userTask: String,
@@ -24,6 +25,7 @@ const counterSchema = new mongoose.Schema({
 
 const Todo = mongoose.model("Todo", todoSchema);
 const Counter = mongoose.model("Counter", counterSchema);
+
 
 /* ===== INIT COUNTER ===== */
 

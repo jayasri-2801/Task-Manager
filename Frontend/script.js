@@ -1,5 +1,5 @@
-const API_URL = "https://task-manager-backend-tti5.onrender.com";
-const COUNT_URL = "https://task-manager-backend-tti5.onrender.com";
+const API_URL = "https://task-manager-backend-tti5.onrender.com/todolist";
+const COUNT_URL = "https://task-manager-backend-tti5.onrender.com/counters";
 
 const task_input = document.getElementById("taskInput");
 const add_btn = document.getElementById("addBtn");
