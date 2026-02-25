@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:5000/todolist";
-const COUNT_URL = "http://localhost:5000/counts";
+const API_URL = "https://task-manager-backend-tti5.onrender.com";
+const COUNT_URL = "https://task-manager-backend-tti5.onrender.com";
 
 const task_input = document.getElementById("taskInput");
 const add_btn = document.getElementById("addBtn");
@@ -12,6 +12,7 @@ const pendingBtn = document.getElementById("pendingBtn");
 
 let allTasks = [];
 
+/* ================= LOAD TASKS ================= */
 
 window.addEventListener("DOMContentLoaded", function () {
   loadTasks();
@@ -30,6 +31,8 @@ function loadTasks() {
     });
 }
 
+/* ================= LOAD COUNTS ================= */
+
 function loadCounts() {
   fetch(COUNT_URL)
     .then(res => res.json())
@@ -39,13 +42,14 @@ function loadCounts() {
     });
 }
 
+/* ================= ADD TASK ================= */
 
 add_btn.addEventListener("click", function () {
 
   const input_task = task_input.value.trim();
 
   if (input_task === "") {
-    alert("Please enter a task");
+    alert("Please enter a task!");
     return;
   }
 
@@ -63,11 +67,13 @@ add_btn.addEventListener("click", function () {
 
 });
 
+/* ================= CREATE TASK FUNCTION ================= */
 
 function create_task_list(task_id, task_text_db, task_status) {
 
   const list_item = document.createElement("li");
 
+  /* ===== COMPLETE BUTTON ===== */
   const complete_btn = document.createElement("button");
   complete_btn.className = "comp-btn";
 
@@ -75,19 +81,24 @@ function create_task_list(task_id, task_text_db, task_status) {
   task_text.className = "tasktext";
   task_text.textContent = task_text_db;
 
+  /* ===== EDIT BUTTON ===== */
   const edit_btn = document.createElement("button");
   edit_btn.className = "edit-btn";
   edit_btn.textContent = "Edit";
 
+  /* ===== DELETE BUTTON ===== */
   const delete_btn = document.createElement("button");
   delete_btn.className = "dlt-btn";
   delete_btn.textContent = "Delete";
 
+  /* ===== IF ALREADY COMPLETED ===== */
   if (task_status === true) {
     complete_btn.textContent = "✔";
     complete_btn.classList.add("marked");
     task_text.classList.add("taskcomp");
   }
+
+  /* ================= COMPLETE CLICK ================= */
 
   complete_btn.addEventListener("click", function () {
 
@@ -114,6 +125,7 @@ function create_task_list(task_id, task_text_db, task_status) {
 
   });
 
+  /* ================= EDIT CLICK ================= */
 
   edit_btn.addEventListener("click", function () {
 
@@ -131,7 +143,7 @@ function create_task_list(task_id, task_text_db, task_status) {
 
   });
 
-
+  /* ================= DELETE CLICK ================= */
 
   delete_btn.addEventListener("click", function () {
 
@@ -145,6 +157,7 @@ function create_task_list(task_id, task_text_db, task_status) {
 
   });
 
+  /* ================= APPEND ================= */
 
   list_item.appendChild(complete_btn);
   list_item.appendChild(task_text);
@@ -154,6 +167,7 @@ function create_task_list(task_id, task_text_db, task_status) {
   task_list.appendChild(list_item);
 }
 
+/* ================= FILTER BUTTONS ================= */
 
 allBtn.addEventListener("click", function () {
   task_list.innerHTML = "";

@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://Jayasri:Jayasri2816@cluster0.3ku3lfd.mongodb.net/todolist?appName=Cluster0")
+mongoose.connect("mongodb+srv://Jayasri:Jayasri2816@cluster0.3ku3lfd.mongodb.net/todolistDB?appName=Cluster0")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
@@ -93,7 +93,7 @@ app.get("/counts", async (req, res) => {
 });
 
 
-const PORT = process.env.PORT||5000;
-app.listen(5000, () => {
-    console.log("Server is Running Successfully");
+const PORT = process.env.PORT||3000;
+app.listen(3000, () => {
+    console.log("Server is Running successfully");
 });
