@@ -1,0 +1,223 @@
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+/* ================= BODY ================= */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #1f1c2c, #928dab, #0f2027, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+}
+
+/* Animated background */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  width: 450px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  color: white;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ================= INPUT SECTION ================= */
+.input-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;   /* ✅ Space added here */
+  margin-bottom: 20px;
+}
+
+input {
+  width: 70%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+input:focus {
+  box-shadow: 0 0 12px #00f5ff;
+}
+
+/* ================= ADD BUTTON ================= */
+#addBtn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  color: white;
+  transition: 0.4s;
+}
+
+#addBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+/* ================= TASK COUNT ================= */
+#taskCount {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ================= FILTER BUTTONS ================= */
+.filters button {
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  color: white;
+  transition: 0.3s;
+}
+
+.filters button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px #ff00ff;
+}
+
+/* ================= TASK LIST ================= */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Task animation */
+li {
+  background: rgba(255,255,255,0.1);
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideIn 0.4s ease forwards;
+  transition: 0.3s;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0,255,255,0.4);
+}
+
+/* ================= TASK TEXT ================= */
+.tasktext {
+  flex: 1;
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+/* Completed task style */
+.taskcomp {
+  text-decoration: line-through;
+  color: #00ff99;
+  transition: 0.3s;
+}
+
+/* ================= COMPLETE BUTTON ================= */
+.comp-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #00f5ff;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.4s;
+  color: white;
+  font-weight: bold;
+}
+
+.comp-btn:hover {
+  background: #00f5ff;
+  box-shadow: 0 0 10px #00f5ff;
+}
+
+/* When marked */
+.marked {
+  background: #00ff99;
+  border-color: #00ff99;
+  color: black;
+  animation: tickAnim 0.3s ease;
+}
+
+@keyframes tickAnim {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* ================= EDIT BUTTON ================= */
+.edit-btn {
+  margin-left: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  background: linear-gradient(45deg, orange, gold);
+  color: black;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px gold;
+}
+
+/* ================= DELETE BUTTON ================= */
+.dlt-btn {
+  margin-left: 5px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  background: linear-gradient(45deg, #ff4e50, #f00000);
+  color: white;
+  transition: 0.3s;
+}
+
+.dlt-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px red;
+}
